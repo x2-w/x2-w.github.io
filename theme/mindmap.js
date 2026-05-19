@@ -61,26 +61,15 @@
     }
 
     function renderMindMaps() {
-
-        const MindMap =
-            window.simpleMindMap?.default ||
-            window.simpleMindMap;
-
+        const MindMap = window.simpleMindMap?.default || window.simpleMindMap;
         if (!MindMap) {
-            console.error(
-                "simpleMindMap not loaded"
-            );
+            console.error("simpleMindMap not loaded");
             return;
         }
 
-        document
-            .querySelectorAll(
-                'pre code.language-mindmap'
-            )
+        document.querySelectorAll('pre code.language-mindmap')
             .forEach((block, idx) => {
-                if (
-                    block.dataset.mindmapRendered
-                ) {
+                if (block.dataset.mindmapRendered) {
                     return;
                 }
 
@@ -91,27 +80,24 @@
                 const wrapper = document.createElement('div');
                 wrapper.className = 'mindmap-wrapper';
                 wrapper.appendChild(container);
-                block.parentElement.replaceWith(
-                    wrapper
-                );
+                block.parentElement.replaceWith(wrapper);
 
                 const data = parseMindMap(text);
 
-                const dark =
-                    document.body.classList.contains('dark') ||
-                    document.body.classList.contains('ayu');
+                const dark = document.body.classList.contains('dark') || document.body.classList.contains('ayu');
 
                 const mindMap = new MindMap({
                     el: container,
                     data,
                     layout: 'logicalStructure',
-                    layout: 'logicalStructure',
                     lineStyle: 'curve',
                     theme: dark ? 'dark' : 'default',
                     editable: false,
                     mousewheelAction: 'zoom',
-                    useLeftKeySelectionRightKeyDrag: true,
+                    useLeftKeySelectionRightKeyDrag: false,
                     useRichText: false,
+                    // 单边展开（关键）
+                    initRootNodePosition: ['left', 'center'],
                     themeConfig: {
                         lineWidth: 2,
                         lineColor: '#4db6ac',
@@ -124,6 +110,7 @@
                         mindMap.view.translateX(-250);
                     } catch (e) {}
                 }, 300);
+
                 function resize() {
                     try {
                         mindMap.resize();
