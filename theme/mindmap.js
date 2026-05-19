@@ -90,7 +90,6 @@
                     el: container,
                     data,
                     layout: 'logicalStructure',
-                    lineStyle: 'curve',
                     theme: dark ? 'dark' : 'default',
                     editable: false,
                     mousewheelAction: 'zoom',
@@ -99,15 +98,18 @@
                     // 单边展开（关键）
                     initRootNodePosition: ['left', 'center'],
                     themeConfig: {
+                        lineStyle: 'straight',
+                        rootLineKeepSameInCurve: true,
                         lineWidth: 2,
                         lineColor: '#4db6ac',
-                        nodeBorderRadius: 8
+                        nodeBorderRadius: 8,
+                        lineRadius: 16
                     }
                 });
                 setTimeout(() => {
                     try {
                         // 左移
-                        mindMap.view.translateX(-250);
+                        mindMap.view.translateX(50);
                     } catch (e) {}
                 }, 300);
 
