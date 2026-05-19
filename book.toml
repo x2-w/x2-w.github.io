@@ -1,3 +1,13 @@
 [book]
 authors = []
 language = "en"
+
+[output.html]
+additional-js = [
+    "theme/simple-mind-map.min.js",
+    "theme/mindmap.js"
+]
+
+additional-css = [
+    "theme/mindmap.css"
+]
