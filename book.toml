@@ -3,9 +3,11 @@ authors = []
 language = "en"
 
 [output.html]
+mathjax-support = true
 additional-js = [
     "theme/simple-mind-map.min.js",
-    "theme/mindmap.js"
+    "theme/mindmap.js",
+    "theme/mathjax.js"
 ]
 
 additional-css = [
