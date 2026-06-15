@@ -20,13 +20,7 @@ mkdir build
 
 cd build
 
-../configure \
-    --target-list=aarch64-linux-user arm-linux-user riscv32-linux-user riscv64-linux-user x86_64-linux-user aarch64-softmmu arm-softmmu i386-softmmu riscv32-softmmu riscv64-softmmu x86_64-softmmu \
-    --enable-debug \
-    --enable-debug-info \
-    --enable-debug-tcg \
-    --enable-trace-backends=log \
-    --disable-strip
+../configure --target-list="aarch64-linux-user arm-linux-user riscv32-linux-user riscv64-linux-user x86_64-linux-user aarch64-softmmu arm-softmmu i386-softmmu riscv32-softmmu riscv64-softmmu x86_64-softmmu" --enable-debug --enable-debug-info --enable-debug-tcg --enable-trace-backends=log --disable-strip
 ```
 
 ## compiling

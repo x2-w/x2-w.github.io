@@ -11,3 +11,4 @@
       - [L1:课程介绍](./courses/cs61c/lectures/L01.md)
       - [L2:数的表示](./courses/cs61c/lectures/L02.md)
 - [实用工具](./tools/tools.md)
+  - [qemu install](./tools/qemu_install.md)
